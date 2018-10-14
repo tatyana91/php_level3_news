@@ -13,9 +13,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if (isset($_GET['act']) && $_GET['act'] == 'delete') {
 	include('inc/delete_news.inc.php');
 }
+
+if (isset($_GET['act']) && $_GET['act'] == 'rss'){
+    $news->createRss();
+    header('Location: rss.xml');
+    exit();
+}
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 	<head>
 		<title>Новостная лента</title>
 		<meta charset="utf-8" />
@@ -30,7 +36,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'delete') {
             <?
         }
 
-		if (isset($_GET['act']) && $_GET['act'] == 'show') {
+        if (isset($_GET['act']) && $_GET['act'] == 'show') {
 			?>
 			<a class='btn' href='news.php'>Последние новости</a>
 			<?
@@ -99,6 +105,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'delete') {
 			?>
 			<a class='btn' href='news.php?act=add'>Добавить новость</a>
 			<h2>Последние новости</h2>
+            <a class='btn rss-btn' href='news.php?act=rss' target="_blank">RSS</a>
 			<div class="news">
 			<?php
 				include('inc/get_news.inc.php');

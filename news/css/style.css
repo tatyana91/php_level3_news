@@ -21,3 +21,6 @@ a:hover {color: #514bad; text-decoration: underline}
 
 .btn {padding: 5px 10px; border-radius: 5px; background: #514bad; color: #fff;  text-decoration: none; border: none;}
 .btn:hover {color: #fff; text-decoration: none}
+
+.rss-btn {padding: 5px 10px; border-radius: 5px; background: #636363; color: #fff; text-decoration: none; border: none; display: inline-block;}
+.rss-btn:hover {color: #fff; text-decoration: none}
